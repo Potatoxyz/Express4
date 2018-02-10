@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../plugin/normalizeCss/normalize.css">
+    <link rel="stylesheet" href="../plugin/animate/animate.css">
+    <link rel="stylesheet" href="../plugin/bootstrap3/bootstrap.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../plugin/bootstrap3/bootstrap-theme.min.css">
+    <title>应用水文地球化学</title>
+</head>
+<style>
+    .loading-wrap{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+        z-index: 2000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .loading-wrap>span{
+        animation: ro linear 1s infinite;
+    }
+    @keyframes ro {
+        0%{transform: rotate(0)}
+        100%{transform: rotate(360deg)}
+    }
+    input.input-error{
+        border:1px solid #FF6666;
+    }
+    .form-group{
+        margin-bottom: 20px;
+    }
+    div.bg-container{
+        height: 100vh;
+        overflow: hidden;
+        background: url("../img/earth44.jpg") no-repeat center/cover;
+    }
+    @media screen and (max-width: 1440px){
+        div.bg-container{
+            height: 100vh;
+            background: url("../img/earth33.jpg") no-repeat center/cover;
+        }
+    }
+    @media screen and (max-width: 960px){
+        div.bg-container{
+            height: 100vh;
+            background: url("../img/earth11.jpg") no-repeat center/cover;
+        }
+        div.bg-container .login-box,div.bg-container .reset-box{
+            background: none;
+        }
+    }
+    .login-title{
+        position: fixed;
+        top:15px;
+        width: 100%;
+    }
+    .login-title h1{
+        color: #87cefa;
+    }
+    .slideToLeft{
+        transform: translateX(-100vw);
+    }
+    .slideToRight{
+        transform: translateX(100vw);
+    }
+    .login-box,.reset-box{
+        position: fixed;
+        bottom: 100px;
+        width: 400px;
+        left: 50%;
+        margin-left: -200px;
+        z-index: 1000;
+
+        padding:50px 10px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 10px;
+        transition: all ease 0.5s;
+    }
+    div.reset-box{
+        left: 150%;
+    }
+    .form-group label{
+        color:white;
+        font-size: 18px;
+        font-weight: normal;
+    }
+    .input{
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        height: 40px;
+        box-shadow: 0 1px 1px 0 white;
+        color:white;
+        padding:8px 5px;
+        font-size: 16px;
+        border-radius: 3px;
+    }
+    .function-wrap .flex div{
+        width: 50%;
+    }
+    .login-action-wrap{
+        display: flex;
+        justify-content: center;
+    }
+    .login-action-wrap.space-between{
+        justify-content: space-between;
+    }
+    .custom-btn{
+        height:50px;
+        color: white;
+        outline: none;
+        z-index: 200;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: none;
+        width: 40%;
+    }
+
+    .custom-sigle-btn{
+        width: 100%;
+    }
+
+    .function-wrap .flex div.remember-wrap{
+        height: 35px;
+        display: flex;
+        align-items: center;
+    }
+    .function-wrap .flex div.forget-wrap>a{
+        color: white;
+        line-height: 35px;
+    }
+    .function-wrap .flex div.remember-wrap>i{
+        color:#c0c0c0;
+    }
+    .function-wrap .flex div.remember-wrap>input[type='checkbox']{
+        display: none;
+    }
+    .function-wrap .flex div.remember-wrap>label{
+        display: inline-block;
+        width: 50px;
+        height: 25px;
+        border-radius: 20px;
+        margin-bottom: 0;
+        background: #696969;
+        margin-right: 10px;
+        position: relative;
+    }
+    #remember:checked+label:after{
+        transform: translateX(100%);
+    }
+    #remember:checked+label{
+        background: #00bfff;
+    }
+    .function-wrap .flex div.remember-wrap>label:after{
+        position: absolute;
+        content: "";
+        background: white;
+        top:0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        border-radius: 50%;
+        transition: all ease 0.3s;
+    }
+</style>
+<body>
+<div class="bg-container">
+    <div id="loading" class="loading-wrap animated none">
+        <span class="glyphicon glyphicon-repeat fa-3x white-text"></span>
+    </div>
+    <div class="loading-bg-black"></div>
+    <div class="login-title">
+        <h1 class="text-center">《应用水文地球化学》</h1>
+    </div>
+    <div id="loginbox" class="login-box container-fluid">
+        <form action="" id="loginForm">
+            <div class="form-group">
+                <label for="account">帐号：</label>
+                <input id="account" type="text" name="account" class="input">
+            </div>
+            <div class="form-group">
+                <label for="password">密码：</label>
+                <input id="password" type="password" name="password" class="input">
+            </div>
+            <div class="form-group function-wrap">
+                <div class="flex">
+                    <div class="remember-wrap">
+                        <input type="checkbox" checked name="remember" id="remember">
+                        <label for="remember"></label>
+                        <i>记住我</i>
+                    </div>
+                    <div class="forget-wrap text-right">
+                        <a href="javascript:;" id="forgetPassword">忘记密码？</a>
+                    </div>
+                </div>
+            </div>
+            <div class="login-action-wrap">
+                <button class="custom-btn custom-sigle-btn btn-bg-blue" type="button" id="onSubmit">登录</button>
+            </div>
+        </form>
+    </div>
+    <div id="resetbox" class="reset-box container-fluid">
+        <form action="" id="resetForm">
+            <div class="form-group">
+                <label for="resetaccount">帐号：</label>
+                <input id="resetaccount" type="text" name="account" class="input">
+            </div>
+            <div class="form-group">
+                <label for="resetpassword">密码：</label>
+                <input id="resetpassword" type="password" name="password" class="input">
+            </div>
+            <div class="login-action-wrap space-between">
+                <button class="custom-btn btn-bg-green " type="button" id="onSubmitReset">修改</button>
+                <button class="custom-btn btn-bg-blue " type="button" id="returnToLogin">返回登录</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="../plugin/jquery/jquery-3.2.1.min.js"></script>
+<script src="../plugin/bootstrap3/bootstrap.min.js"></script>
+<script src="../plugin/customToast/mytoast.js"></script>
+<script>
+    $(function () {
+        var account=$('#account');
+        var password=$('#password');
+        var submit=$('#onSubmit');
+        var loading=$('#loading');
+        var forgetPassword=$('#forgetPassword');
+        var returnToLogin=$('#returnToLogin');
+        var loginbox=$('#loginbox');
+        var resetbox=$('#resetbox');
+        var resetaccount=$('#resetaccount');
+
+        var formData=$('#loginForm');
+
+        $(account)[0].focus();
+
+        $(account).focus(function () {
+            $(this).removeClass('input-error');
+        });
+        $(password).focus(function () {
+            $(this).removeClass('input-error');
+        });
+        var inputError=function (target) {
+            $(target).addClass('input-error');
+        };
+        var showLoaing=function () {
+            $(loading).removeClass('none').addClass('zoomIn');
+        };
+        var hideLoading=function () {
+            $(loading).removeClass('zoomIn').addClass('fadeOut none');
+        };
+
+        $(forgetPassword).click(function () {
+            $(loginbox).addClass('slideToLeft');
+            $(resetbox).addClass('slideToLeft');
+            $(resetaccount)[0].focus();
+        });
+        $(returnToLogin).click(function () {
+            $(loginbox).removeClass('slideToLeft');
+            $(resetbox).removeClass('slideToLeft');
+        });
+
+
+        $(submit).click(function () {
+
+            if($(account).val()==''){
+                //opentoast('帐号不能为空!');
+                showToast($('.bg-container'),'帐号不可以空!');
+                inputError(account);
+                setTimeout(function () {
+                    closeToast();
+                },3000)
+            }
+            else{
+                if($(password).val()==''){
+                    showToast($('.bg-container'),'密码不能为空!');
+                    inputError(password);
+                    setTimeout(function () {
+                        closeToast();
+                    },2000)
+                }
+                else{
+                    showLoaing();
+                    if($(password).val()!='10086'){
+                        setTimeout(function () {
+                            inputError(password);
+                            inputError(account);
+                            showToast($('.bg-container'),'密码错误!');
+                            setTimeout(function () {
+                                closeToast();
+                            },3000);
+                            hideLoading();
+                        },3000);
+                    }
+                }
+            }
+            console.log($(formData).serializeArray());
+        })
+    })
+</script>
+</html>

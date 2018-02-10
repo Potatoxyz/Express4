@@ -1,0 +1,80 @@
+@media screen and (max-width: 768px){
+    div.body{
+        margin-left: 50px;
+    }
+    .nav-wrap{
+        justify-content: center;
+    }
+    .nav-wrap h3{
+        font-size: 20px;
+        margin-left: 0;
+    }
+    .nav-wrap .topbarFun-wrap{
+        right: 0;
+    }
+    .nav-wrap .topbarFun-wrap .name,.nav-wrap .topbarFun-wrap .img-wrap{
+        display: none;
+    }
+    .nav-wrap .left-fun{
+        display: block!important;
+    }
+
+    div.rightBar{
+        width: 200px;
+        font-size: 10px;
+    }
+    div.sideBar{
+        width: 100px;
+        transform: translateX(-50px);
+    }
+    div.sideBar ul{
+        margin-right: 5px;
+    }
+    div.sideBar ul li .icon-box{
+        width: 30px;
+        height: 30px;
+    }
+    div.sideBar ul li .icon-box .glyphicon{
+        font-size: 1.5em;
+    }
+    .sideBar ul li .link-wrap a{
+        margin-left: 5px;
+    }
+
+    div.rightBar .action{
+        padding:8px;
+    }
+    div.rightBar .action>span{
+        padding:8px;
+    }
+    div.rightBar .action>span i{
+        font-size: 1.5em;
+    }
+    div.rightBar .file-list li .glyphicon{
+        font-size: 1.5em;
+    }
+    div.rightBar .file-list li .editFileName .glyphicon{
+        font-size: 1.2em;
+    }
+    div.rightBar .tab-content{
+       width: 200px;
+    }
+    div.select-files {
+        width: 200px;
+        justify-content: flex-start;
+    }
+    div.select-files>.input-group-btn button{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #rightBar .file-list li.list-item div.file-list-item p.filename-display-box .filenameinput input{
+        padding: 3px 6px;
+        height: 20px;
+    }
+    #rightBar .file-list li.files-detail ul.sigle-file-wrap{
+        padding-left: 0;
+    }
+    #rightBar .file-list li.files-detail ul.sigle-file-wrap li{
+        width: 100%;
+    }
+}

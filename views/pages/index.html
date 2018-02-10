@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../plugin/normalizeCss/normalize.css">
+    <link rel="stylesheet" href="../plugin/animate/animate.css">
+    <link rel="stylesheet" href="../plugin/bootstrap3/bootstrap.css">
+    <link rel="stylesheet" href="../plugin/slide/jquery.fullpage.css">
+    <link rel="stylesheet" href="../plugin/cuttomInputFile/inputFile.css">
+    <link rel="stylesheet" href="../plugin/scrollBar/scrollBar.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/index-frame.css">
+    <link rel="stylesheet" href="../css/index-flexiable.css">
+    <link rel="stylesheet" href="../css/rightBar&upload.css">
+    <link rel="stylesheet" href="../plugin/bootstrap3/bootstrap-theme.min.css">
+    <title>《应用水文地球化学》</title>
+</head>
+<style>
+    #user-icon{
+        position: relative;
+    }
+    #user-icon>.dropdown{
+        position: absolute;
+        top: 71px;
+        left: -85px;
+        width: 180px;
+        height: 90px;
+        background: rgb(255,255,255);
+        border-radius: 6px;
+    }
+    #user-icon>.dropdown .mycaret{
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 16px solid rgb(255,255,255);
+        position: relative;
+        top: -16px;
+        left: 50%;
+    }
+    #user-icon>.dropdown .caret-wrap{
+        height: 15px;
+    }
+    #user-icon>.dropdown ul{
+        padding:0 20px;
+        margin-bottom: 0;
+    }
+    #user-icon>.dropdown ul li{
+        padding:4px;
+        color: #595353;
+        display: flex;
+        text-align: left;
+        cursor: pointer;
+    }
+    #user-icon>.dropdown ul li:hover>span{
+        color:rgb(95,190,140);
+    }
+    #user-icon>.dropdown ul li:first-of-type{
+        border-bottom: 1px solid #927272;
+    }
+    #user-icon>.dropdown ul li span{
+        width: calc(100% - 30px);
+        height: 25px;
+        line-height: 25px;
+    }
+    #user-icon>.dropdown ul li i{
+        width: 30px;
+        height: 25px;
+        line-height:25px;
+    }
+    div.body{
+        background: url('../img/bg.jpg');
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+    }
+    div.body div.content{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.7);
+    }
+</style>
+<body>
+<div class="nav-wrap">
+    <div class="left-fun none"><span id="leftBar" class="glyphicon glyphicon-align-left radius3"></span></div>
+    <h3>《应用水文地球化学》</h3>
+    <div class="topbarFun-wrap flex">
+        <span class="name">David</span>
+        <div class="img-wrap" id="user-icon">
+            <img src="../img/Wolf.jpg" width="50" height="50" alt="头像">
+            <div class="dropdown" id="user-dropdown" style="display: none;">
+               <div class="caret-wrap"><span class="mycaret"></span></div>
+                <ul>
+                    <li id="userSetting">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>个人设置</span>
+                    </li>
+                    <li id="userQuite">
+                        <i class="glyphicon glyphicon-off"></i>
+                        <span>退出</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <span id="rightFun" class="glyphicon glyphicon-th"></span>
+    </div>
+</div>
+<div class="sideBar" id="sideBar">
+    <ul>
+        <li>
+            <div class="link-wrap">
+                <a class="link text-left" href="javascript:;">首页</a>
+            </div>
+            <div class="icon-box active-box flex">
+                <i class="glyphicon glyphicon-home white-text fa-2x noCusor"></i>
+            </div>
+        </li>
+        <li>
+            <div class="link-wrap">
+                <a class="link text-left" href="javascript:;">留言</a>
+            </div>
+            <div class="icon-box flex">
+                <i class="glyphicon glyphicon-home white-text fa-2x noCusor"></i>
+            </div>
+        </li>
+        <li>
+            <div class="link-wrap">
+                <a class="link text-left" href="javascript:;">点名</a>
+            </div>
+            <div class="icon-box flex">
+                <i class="glyphicon glyphicon-home white-text fa-2x noCusor"></i>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="rightBar" id="rightBar">
+    <div class="tab flex">
+        <div class="close">
+            <i id="closeRightFun" class="glyphicon glyphicon-chevron-right white-text"></i>
+        </div>
+        <input id="tab1" type="radio" value="tab1" name="tab" checked>
+        <label for="tab1">PDF</label>
+
+        <input id="tab2" type="radio" value="tab2" name="tab">
+        <label for="tab2">上传</label>
+
+        <input id="tab3" type="radio" value="tab3" name="tab">
+        <label for="tab3">聊天</label>
+    </div>
+
+    <div id="tab1-content" class="tab-content">
+        <div class="action">
+            <span class="mybg-primary" id="addFliebox"><i class="glyphicon glyphicon-plus fa-2x"></i></span>
+            <span class="mybg-error right" id="deleteFileBox"><i class="glyphicon glyphicon-trash fa-2x"></i></span>
+            <span class="mybg-error right" id="dodelete" style="display: none"><i
+                    class="glyphicon glyphicon-minus fa-2x"></i></span>
+        </div>
+        <ul class="file-list">
+            <li class="list-item">
+                <div class="checkbox-wrap" style="display: none">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" disabled/>
+                        <span class="glyphicon glyphicon-ok black-text"></span>
+                    </label>
+                </div>
+                <div class="file-list-item">
+                    <span class="file-icon"><i class="glyphicon glyphicon-folder-open fa-2x"></i></span>
+                    <p class="filename-display-box">
+                        <span class="filenametext">默认文件夹</span>
+                        <span class="filenameinput" style="display: none;">
+                            <input type="text" class="form-control">
+                        </span>
+                    </p>
+                    <span class="editFileName editicon">
+                    <i class="glyphicon glyphicon-pencil fa-1-5x"></i>
+                    </span>
+                    <span class="editFileName confirmediticon" style="display: none;">
+                    <i class="glyphicon glyphicon-ok fa-1-5x"></i>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="tab2-content" class="tab-content">
+        <form id="fileupload">
+            <div class="uploader black mb15">
+                <input type="text" class="filename" style="width: 180px;" readonly/>
+                <input type="button" name="file" class="button" style="width: 80px" value="Browse..."/>
+                <input type="file" size="30" id="file" name="file" multiple/>
+            </div>
+            <div class="input-group select-files mb15">
+                <select name="filesWraper" id="filesSelect" class="form-control">
+                    <option value="_choice">请选择文件夹</option>
+                </select>
+                <span class="input-group-btn">
+                       <button class="btn btn-primary" type="button" id="submitAll">全部上传</button>
+                </span>
+            </div>
+
+            <div class="progress mb15 none" id="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+
+        </form>
+        <div class="info-wrap">
+            <div id="preview-title" class="upload-item none">
+                <span>预览</span>
+                <span>详情</span>
+                <span>操作</span>
+            </div>
+        </div>
+    </div>
+    <div id="tab3-content" class="tab-content">
+        <p>tab3</p>
+    </div>
+
+</div>
+<div class="body">
+    <div class="content">
+    <iframe id="playPic" src="scanPic" frameborder="0" width="100%" height="0"></iframe>
+    <iframe id="userinfo" src="user-setting" frameborder="0" width="100%" height="0"></iframe>
+    </div>
+</div>
+</body>
+<script src="../plugin/jquery/jquery-3.2.1.min.js"></script>
+<script src="../plugin/bootstrap3/bootstrap.min.js"></script>
+
+<script src="../plugin/cuttomInputFile/inputfile.js"></script>
+<script src="../plugin/customToast/mytoast.js"></script>
+
+<script src="../plugin/jquery-file-upload/jquery.ui.widget.js"></script>
+<script src="../plugin/jquery-file-upload/jquery.iframe-transport.js"></script>
+<script src="../plugin/jquery-file-upload/jquery.fileupload.js"></script>
+<script src="../plugin/jquery-file-upload/load-image.all.min.js"></script>
+
+
+<script src="../plugin/alert/alert.js"></script>
+<script src="../js/index-toggleBar.js"></script>
+<script src="../js/public.js"></script>
+<script src="../js/index-rightBar-innerToggle.js"></script>
+<script src="../js/upload&displayFile.js"></script>
+<script>
+    $(function () {
+        //禁用tab键
+        document.onkeydown = function (e) {
+            var isie = (document.all) ? true : false;
+            var key;
+            var ev;
+            if (isie) {//IE浏览器
+                key = window.event.keyCode;
+                ev = window.event;
+            } else {//火狐浏览器
+                key = e.which;
+                ev = e;
+            }
+            if (key == 9) {//IE浏览器
+                if (isie) {
+                    ev.keyCode = 0;
+                    ev.returnValue = false;
+                } else {//火狐浏览器
+                    ev.which = 0;
+                    ev.preventDefault();
+                }
+            }
+        };
+        //上传文件input样式
+        initInputFile();
+        //获取服务端文件夹
+        updateAllFiles();
+
+        //点击其他地方时，关闭头像
+        $('body').click(function () {
+            $('#user-icon .dropdown')[0].style.cssText+='display:none';
+        });
+        $('.dropdown').click(function (e) {
+            e.stopPropagation();
+        });
+        $('#user-icon').click(function (e) {
+            e.stopPropagation();
+            $('#user-dropdown').toggle();
+        });
+        $('#userSetting').click(function () {
+            $('#user-dropdown').toggle();
+            $('#userinfo').siblings('iframe').prop('height','0');
+            $('#userinfo').prop('height','100%');
+        })
+    })
+</script>
+</html>

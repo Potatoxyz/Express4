@@ -1,0 +1,167 @@
+.rightBar .action {
+    padding: 8px;
+}
+
+.rightBar .action > span {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.rightBar .file-list {
+    padding: 0 8px;
+}
+
+.rightBar .file-list li.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.file-list li.list-item .checkbox-wrap {
+    margin-right: 10px;
+}
+
+.rightBar .file-list li.list-item div.file-list-item {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+    background: linear-gradient(to bottom, #000, #696969);
+}
+
+.rightBar .file-list li.list-item div.file-list-item .file-icon, .rightBar .file-list li .editFileName {
+    width: 15%;
+    text-align: center;
+}
+.rightBar .file-list li.list-item div.file-list-item .file-icon i,.rightBar .file-list li .editFileName i{
+    display: inline-block;
+    width: 100%;
+}
+
+
+.rightBar .file-list li.list-item div.file-list-item p {
+    width: 70%;
+    text-align: center;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rightBar .file-list li.list-item p.filename-display-box {
+    padding-left: 5px;
+}
+
+.rightBar .tab-content {
+    position: absolute;
+    top: 60px;
+    width: 300px;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    transition: all ease 0.5s;
+}
+
+.rightBar #tab1-content {
+    left: 0;
+}
+
+.rightBar #tab2-content {
+    left: 100%;
+}
+
+.rightBar #tab3-content {
+    left: 200%;
+}
+
+.bar {
+    height: 18px;
+    background: green;
+}
+
+.upload-item {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.upload-item span {
+    text-align: center;
+}
+
+.upload-item span.file-action a {
+    padding: 2px;
+    border-radius: 1px;
+}
+
+.upload-item span.file-action a.mybg-primary {
+    text-align: center;
+    width: 32px;
+}
+
+.upload-item span.file-action a:first-of-type {
+    margin-right: 8px;
+}
+
+.upload-item span:nth-of-type(1) {
+    width: 100px;
+}
+
+.upload-item span:nth-of-type(2) {
+    width: 100px;
+}
+
+.upload-item span:nth-of-type(3) {
+    width: 100px;
+}
+
+.upload-item span.file-detail i {
+    display: block;
+}
+
+.uploader {
+    width: 100%;
+}
+
+.glyphicon-chevron-right {
+    width: 40px;
+    height: 40px;
+}
+.select-files{
+    margin:0 auto;
+    width: 87%;
+}
+.progress {
+    height: 20px;
+}
+
+.rightBar .file-list li.files-detail {
+    margin-top: -15px;
+    overflow-x: hidden;
+}
+
+.rightBar .file-list li.files-detail .files-detail-icon {
+    margin-bottom: 5px;
+}
+
+.rightBar .file-list li.files-detail .files-detail-icon i {
+    padding-left: 25px;
+    position: relative;
+    top: 5px;
+}
+
+.rightBar .file-list li.files-detail ul.sigle-file-wrap {
+    padding-left: 30px;
+}
+
+.rightBar .file-list li.files-detail ul.sigle-file-wrap li {
+    border-radius: 5px;
+    padding: 5px;
+    background: linear-gradient(to bottom, black, #00bfff);
+    width: 247px;
+    margin-bottom: 10px;
+}

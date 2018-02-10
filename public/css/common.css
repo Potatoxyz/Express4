@@ -1,0 +1,27 @@
+label.custom-checkbox{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid white;
+    border-radius: 2px;
+    transition: all ease 0.2s;
+    box-shadow: 0 0 2px white;
+    position: relative;
+    margin-bottom: 0;
+    line-height: 18px;
+}
+label.custom-checkbox:hover{
+    border-color: rgba(53, 105, 213, 0.7);
+    box-shadow: 0 0 2px #3569D5;
+}
+label.custom-checkbox span{
+    font-size: 14px;
+    display: inline-block;
+    margin: 0 auto;
+}
+label.custom-checkbox span,label.custom-checkbox input{
+    display: none;
+}
+label.custom-checkbox input:checked+span{
+    display: block;
+}

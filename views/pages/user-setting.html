@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../plugin/bootstrap3/bootstrap.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        min-height: 100vh;
+        background: transparent;
+        color:white;
+    }
+    .form-group input.form-control{
+        background-color: rgba(0,0,0,.3);
+        border-color: #6b6565;
+        margin-top: 10px;
+        color: white;
+    }
+    .form-group .group-name{
+        margin-bottom: 10px;
+        color:white;
+    }
+    .uerIcon-wrap{
+        display: flex;
+        justify-content: center;
+    }
+    .uerIcon{
+        display: inline-block;
+        border-radius: 50%;
+        border:1px solid #afa4a4;
+        overflow: hidden;
+        position: relative;
+    }
+    .uerIcon .changeUserIcon{
+        position: absolute;
+        bottom:-25px;
+        width: 100%;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        background: rgba(0,0,0,.5);
+        z-index: 10;
+        color:white;
+        cursor: pointer;
+        transition: all ease 0.5s;
+    }
+    .uerIcon img{
+        width: 120px;
+        height: 120px;
+        clip-path: circle(100px at 50px 50px);
+    }
+    .uerIcon:hover>.changeUserIcon{
+        bottom:10px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="title">
+            <h3>修改用户信息</h3>
+        </div>
+        <div class="content">
+            <form action="">
+                <div class="form-group uerIcon-wrap">
+                    <div class="uerIcon">
+                        <img src="../img/Wolf.jpg" alt="user">
+                        <span class="changeUserIcon">修改头像<input type="file" hidden></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="group-name">用户名：</span>
+                    <input type="text" class="form-control" readonly value="aaaaaa">
+                </div>
+                <div class="form-group">
+                    <span class="group-name">密码：</span>
+                    <input type="password" class="form-control" readonly value="55555@qq.com">
+                </div>
+                <div class="form-group">
+                    <span class="group-name">邮箱：</span>
+                    <input type="text" class="form-control" readonly value="55555@qq.com">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default btn-sm right">取消</button>
+                    <button class="btn btn-primary btn-sm right mr15">修改</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

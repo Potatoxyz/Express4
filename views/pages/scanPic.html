@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../plugin/slide/jquery.fullpage.css">
+    <title>Document</title>
+</head>
+<style>
+    .section{
+        text-align: center;
+    }
+    .section img,.slide img{
+        width: 100%;
+        height: 100%;
+    }
+    .fp-controlArrow.fp-next{
+        border-color: transparent transparent transparent #807d7d;
+    }
+    .fp-controlArrow.fp-prev{
+        border-color: transparent #807d7d transparent transparent;
+    }
+    #fp-nav{
+        margin-top: 0;
+        top:50px;
+    }
+</style>
+<body>
+</body>
+<script src="../plugin/jquery/jquery-3.2.1.min.js"></script>
+<script src="../plugin/slide/jquery.fullpage.js"></script>
+<script>
+    var t=1;
+    var initPage=function (anchors,srcs) {
+        if(t>1){
+            $.fn.fullpage.destroy('all');
+            $('body').empty();
+        }
+        var htmltext='<div id="fullpage"></div>';
+        $(htmltext).appendTo('body');
+        srcs.forEach(function (value,index) {
+            var picshtml='<div class="section"><div class="slide"><img alt="图片暂时无法显示" src='+value+'></div></div>';
+            $(picshtml).removeClass('active');
+            $('#fullpage').append(picshtml);
+        });
+        console.log(anchors);
+        if(anchors.length>0){
+            window.parent.$('#playPic').siblings('iframe').prop('height','0');
+            window.parent.$('#playPic').prop('height','100%');
+            initFullpage(anchors);
+            $.fn.fullpage.moveTo('Pic0', 1);
+            t++;
+        }
+        else{
+            window.parent.$('#playPic').siblings('iframe').prop('height','0');
+            window.parent.$('#playPic').prop('height','0');
+        }
+    };
+    var initFullpage=function (anchors) {
+        //图片浏览
+        $('#fullpage').fullpage(
+            {
+                sectionsColor: ['#d8bfd8','#bc8f8f','#ffdab9','#fff4f0','#fffacd','#8fbc8f','#b0c4de','#b0e0e6','#d3d3d3'],
+                anchors:anchors,
+                animateAnchor:true,
+                navigation:true,
+                scrollingSpeed:500,
+                recordHistory:false,
+                showActiveTooltip:true
+            }
+        );
+    }
+</script>
+</html>
