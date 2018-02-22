@@ -185,7 +185,7 @@ router.get('/getPic', function(req, res){
                 if(files){
                     var urls=[];
                     files.forEach((value)=>{
-                        urls.push(`http://localhost:8080/upload/${targetfile}/${value}`);
+                        urls.push(`http://172.20.1.146:8080/upload/${targetfile}/${value}`);
                 });
                     res.send({result:true,message:'文件获取成功',data:urls});
                     res.end();

@@ -15,7 +15,7 @@ var playpic=function (toOpenfile) {
     var playPic=$('#playPic');
     console.log(toOpenfile);
     $.ajax({
-        url:'http://localhost:8080/server/getPic',
+        url:'http://172.20.1.146:8080/server/getPic',
         type:'GET',
         data:{data:toOpenfile},
         error:function (err) {
@@ -101,7 +101,7 @@ var editfilename = function (_edit, _confirmedit) {
             $(input).children('input').val('');
             updatefileoptions();
             $.ajax({
-                url:'http://localhost:8080/server/editfile',
+                url:'http://172.20.1.146:8080/server/editfile',
                 type:'POST',
                 data:{beforetext: beforetext,aftertext: inputvalue},
                 error:function () {
@@ -134,7 +134,7 @@ var addFliebox = $('#addFliebox');
 var addFile = function () {
     var newfiletext = '新建文件夹(' + filecode + ')';
     $.ajax({
-        url:'http://localhost:8080/server/addfile',
+        url:'http://172.20.1.146:8080/server/addfile',
         type:'POST',
         data:{filename:newfiletext},
         error:function () {
@@ -171,7 +171,7 @@ var deleteFileBox = $('#deleteFileBox');
 var dodelete = $('#dodelete');
 var delfuc=function (data,todelArr) {
     $.ajax({
-        url:'http://localhost:8080/server/deletefile',
+        url:'http://172.20.1.146:8080/server/deletefile',
         type:'POST',
         data:data,
         processData :false,
@@ -274,7 +274,7 @@ var updatefileoptions = function (keepvalue) {
 var filesmock;
 var updateAllFiles=function (keepfileoption) {
     $.ajax({
-        url: 'http://localhost:8080/server/filesList',
+        url: 'http://172.20.1.146:8080/server/filesList',
         type: 'GET',
         error: function () {
             console.log('网络连接错误');
@@ -373,14 +373,14 @@ $(submitAll).click(function (e) {
 
         if(checkFileWraper()){
             $.ajax({
-                url: 'http://localhost:8080/server/targetFile',
+                url: 'http://172.20.1.146:8080/server/targetFile',
                 type: 'POST',
                 data: {targetFile: selectedFilesWrap},
                 success: function (res) {
                     console.log(res);
                     //先判断文件夹有没有问题，再提交进行文件上传
                     $.ajax({
-                        url: 'http://localhost:8080/server/upload',
+                        url: 'http://172.20.1.146:8080/server/upload',
                         type: 'POST',
                         processData: false,  // 不处理数据，默认情况下，为了配合application/x-www-urlencoded,会把data转换成查询字符串
                         contentType: false,   // 不设置内容类型
@@ -445,7 +445,7 @@ $(submitAll).click(function (e) {
 
 });
 $('#fileupload').fileupload({
-    url: 'http://localhost:8080/server/upload',
+    url: 'http://172.20.1.146:8080/server/upload',
 
     //进度条
     progressall: function (e, data) {
@@ -544,7 +544,7 @@ $('#fileupload').fileupload({
                         if(checkFileWraper()){
                             var selectedFilesWrap = $('#filesSelect').val();
                             $.ajax({
-                                url: 'http://localhost:8080/server/targetFile',
+                                url: 'http://172.20.1.146:8080/server/targetFile',
                                 type: 'POST',
                                 data: {targetFile: selectedFilesWrap},
                                 error:function () {},
